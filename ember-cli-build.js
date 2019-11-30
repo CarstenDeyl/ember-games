@@ -5,8 +5,7 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     'ember-composable-helpers': {
-      only: ['inc', 'dec', 'pipe'],
-      except: ['pipe', 'filter-by']
+      only: ['range']
     }
   });
 

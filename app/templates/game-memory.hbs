@@ -1,11 +1,12 @@
 Memory
 
 <div>
-  {{#each (repeat 3) as |i|}}
-    i
+  {{#each this.model as |memory-content|}}
+  {{#each (repeat 2) as |i|}}
+    <MemoryCard
+            class="memory-card"
+            @text={{memory-content}}
+    />
   {{/each}}
-  <MemoryCard
-          text="1"
-          onclick=""
-  />
+  {{/each}}
 </div>

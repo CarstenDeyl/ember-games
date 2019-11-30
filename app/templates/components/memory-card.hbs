@@ -1,6 +1,6 @@
 <div
-        onclick={{action "handleClick"}}
+        onclick={{action "chooseCard"}}
 >
-  {{if this.chosen this.text}}
-  {{unless this.chosen "x"}}
+  {{if (or this.chosen this.solved) this.text}}
+  {{unless (or this.chosen this.solved) "x"}}
 </div>

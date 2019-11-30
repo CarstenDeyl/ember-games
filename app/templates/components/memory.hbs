@@ -1,0 +1,12 @@
+<div>
+  {{#each this.cards as |card|}}
+    {{#each (range 0 2) as |pair|}}
+      <MemoryCard
+              @text={{card}}
+              @pair={{pair}}
+              @onChosen={{action "chosenCard"}}
+              class="memory-card"
+      />
+    {{/each}}
+  {{/each}}
+</div>

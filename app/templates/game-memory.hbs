@@ -1,14 +1,3 @@
 Memory
 
-<div>
-  {{#each this.model as |memory-content|}}
-  {{#each (range 0 2) as |id|}}
-    <MemoryCard
-            class="memory-card"
-            @text={{memory-content}}
-            @dup={{id}}
-            @board={{this}}
-    />
-  {{/each}}
-  {{/each}}
-</div>
+<Memory />

@@ -8,10 +8,13 @@ export default Component.extend({
     this.solved = false;
   },
 
+  resetCard() {
+    this.set("chosen", false);
+  },
+
   actions: {
     chooseCard(){
       const resp = this.onChosen(this.text, this.pair);
-      console.log(resp);
       switch (resp) {
         case "chosen":
           console.log('chosen');
@@ -22,7 +25,7 @@ export default Component.extend({
           this.set("solved", true);
           break;
         default:
-          console.log('wrong');
+          console.log('wrong or already solved');
           this.set("chosen", false);
           break;
       }

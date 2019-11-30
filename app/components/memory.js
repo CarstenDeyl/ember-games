@@ -12,7 +12,6 @@ export default Component.extend({
       }
     }
     this.chosen = [];
-    this.solved = [];
   },
 
   shuffle(array) {

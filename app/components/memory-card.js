@@ -6,29 +6,19 @@ export default Component.extend({
     this._super(...arguments);
     this.chosen = false;
     this.solved = false;
+    this.flipped = false;
   },
 
-  resetCard() {
-    this.set("chosen", false);
+  wrongCard() {
+    this.set('flipped', true);
+    setTimeout(() => {
+      this.set('flipped', false);
+    }, 1500)
   },
 
   actions: {
     chooseCard(){
-      const resp = this.onChosen(this.text, this.pair);
-      switch (resp) {
-        case "chosen":
-          console.log('chosen');
-          this.set("chosen", true);
-          break;
-        case "solved":
-          console.log('solved');
-          this.set("solved", true);
-          break;
-        default:
-          console.log('wrong or already solved');
-          this.set("chosen", false);
-          break;
-      }
+      this.onChosen(this);
     }
   }
 });

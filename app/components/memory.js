@@ -26,20 +26,33 @@ export default Component.extend({
   },
 
   actions: {
-    chosenCard(text, pair) {
-      if(this.solved.includes(text)) {
+    chosenCard(card) {
+      if(card.solved) {
+        console.log("already solved");
         return;
       }
       if (this.chosen.length === 0) {
-        this.chosen.push({text, pair});
-        return 'chosen';
-      } else if (this.chosen[0].text === text && this.chosen[0].pair === pair) {
+        console.log("chosen");
+        card.set("chosen", true);
+        this.chosen.push(card);
+        return;
+      }
+      const prevCard = this.chosen[0];
+      if (prevCard.text === card.text && prevCard.pair === card.pair) {
+        console.log("same");
+        card.set("chosen", false);
         this.chosen = [];
-      } else if (this.chosen[0].text === text && this.chosen[0].pair !== pair) {
-        this.solved.push(this.chosen[0].text, text);
+      } else if (prevCard.text === card.text && prevCard.pair !== card.pair) {
+        console.log("solved");
+        prevCard.set('solved', true);
+        card.set('solved', true);
         this.chosen = [];
-        return "solved";
       } else {
+        console.log("wrong");
+        prevCard.set('chosen', false);
+        card.set('chosen', false);
+        prevCard.wrongCard();
+        card.wrongCard();
         this.chosen = [];
       }
     },

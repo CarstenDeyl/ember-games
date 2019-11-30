@@ -1,3 +1,6 @@
-<div>
-  {{this.text}}
+<div
+        onclick={{action "handleClick"}}
+>
+  {{if this.chosen this.text}}
+  {{unless this.chosen "x"}}
 </div>

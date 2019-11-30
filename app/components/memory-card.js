@@ -1,9 +1,15 @@
 import Component from '@ember/component';
 
 export default Component.extend({
+
+  init() {
+    this._super(...arguments);
+    this.chosen = false;
+  },
+
   actions: {
     handleClick() {
-      this.text = 2;
+      this.set('chosen', true);
     }
   }
 });
